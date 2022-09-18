@@ -39,7 +39,7 @@ spec:
   stages {
     stage("Checkout SCM"){
         steps {
-            git credentialsId: 'git-creds', url: 'https://github.com/DevOps-MN/Jenkins-Pipelines.git'
+            git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/DevOps-MN/Jenkins-Pipelines.git'
         }
     }
     
