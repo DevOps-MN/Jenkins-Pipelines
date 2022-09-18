@@ -39,7 +39,9 @@ spec:
   stages {
     stage("Checkout SCM"){
         steps {
-            git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/DevOps-MN/Jenkins-Pipelines.git'
+//             git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/DevOps-MN/Jenkins-Pipelines.git'
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-creds', url: 'https://github.com/DevOps-MN/Jenkins-Pipelines.git']]])
+            sh "ls -lart ./*"
         }
     }
     
